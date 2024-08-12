@@ -6,10 +6,11 @@ require('dotenv').config();
 
 const app = express();
 app.use(cors({
-    origin: 'https://log-in-sign-up-mern.vercel.app', // Replace with your frontend URL
+    origin: 'https://your-frontend-url.vercel.app', // Replace with your frontend URL
     methods: ['GET', 'POST'],
     allowedHeaders: ['Content-Type']
 }));
+
 app.use(express.json());
 app.use('/api/auth', authRoutes);
 
