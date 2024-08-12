@@ -7,10 +7,12 @@ function Login() {
     const [message, setMessage] = useState('');
     const [error, setError] = useState('');
 
+    const API_URL = 'https://log-in-sign-up-mern-4mvy.vercel.app/api/auth/login';
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post('http://localhost:5002/api/auth/login', { email, password });
+            const res = await axios.post(API_URL, { email, password });
             // Store token in local storage or state if needed
             localStorage.setItem('token', res.data.token);
             // Set success message
