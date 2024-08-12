@@ -11,21 +11,17 @@ function Signup() {
     const [message, setMessage] = useState('');
     const navigate = useNavigate();
 
-    const API_URL = 'https://log-in-sign-up-mern-4mvy.vercel.app/api/auth/signup';
-
-   // Signup.js
-const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-        await axios.post('https://log-in-sign-up-mern-4mvy.vercel.app/api/auth/signup', { name, email, gender, mobile, password });
-        setMessage('User signed up successfully! Redirecting to login...');
-        setTimeout(() => navigate('/login'), 2000); // Redirect to login page after 2 seconds
-    } catch (error) {
-        console.error(error);
-        setMessage('An error occurred during signup');
-    }
-};
-
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            await axios.post('https://your-backend-url.vercel.app/api/auth/signup', { name, email, gender, mobile, password });
+            setMessage('User signed up successfully! Redirecting to login...');
+            setTimeout(() => navigate('/login'), 2000); // Redirect to login page after 2 seconds
+        } catch (error) {
+            console.error(error);
+            setMessage('An error occurred during signup');
+        }
+    };
 
     return (
         <div className="form-container">
