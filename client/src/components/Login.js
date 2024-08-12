@@ -7,25 +7,21 @@ function Login() {
     const [message, setMessage] = useState('');
     const [error, setError] = useState('');
 
-    const API_URL = 'https://log-in-sign-up-mern-4mvy.vercel.app/api/auth/login';
-
-   // Login.js
-const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-        const res = await axios.post('https://log-in-sign-up-mern-4mvy.vercel.app/api/auth/login', { email, password });
-        // Store token in local storage or state if needed
-        localStorage.setItem('token', res.data.token);
-        // Set success message
-        setMessage('Login successful!');
-        setError('');
-    } catch (error) {
-        // Set error message
-        setError('Login failed: ' + (error.response?.data.message || error.message));
-        setMessage('');
-    }
-};
-
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const res = await axios.post('https://your-backend-url.vercel.app/api/auth/login', { email, password });
+            // Store token in local storage or state if needed
+            localStorage.setItem('token', res.data.token);
+            // Set success message
+            setMessage('Login successful!');
+            setError('');
+        } catch (error) {
+            // Set error message
+            setError('Login failed: ' + (error.response?.data.message || error.message));
+            setMessage('');
+        }
+    };
 
     return (
         <div className="form-container">
